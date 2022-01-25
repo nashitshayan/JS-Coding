@@ -16,23 +16,32 @@
 
 //module revealing pattern
 
-const myModule= (()=>{
-    'use strict'
+// const myModule= (()=>{
+//     'use strict'
 
-    let _privy = 'Hi there';
-    let publy= 'public ting';
+//     let _privy = 'Hi there';
+//     let publy= 'public ting';
 
-    let _priMethod = ()=>{
-        console.log(_privy);
-    }
-    let publyMethod = ()=>{
-        _priMethod();
-    }
+//     let _priMethod = ()=>{
+//         console.log(_privy);
+//     }
+//     let publyMethod = ()=>{
+//         _priMethod();
+//     }
 
-    return {publyMethod, publy};
+//     return {publyMethod, publy};
 
+// })();
+
+
+// myModule.publyMethod();
+// console.log(myModule.publy)
+
+
+const aModule = (()=>{
+    const log= ()=> console.log('a module\'s log');
+    return {log}
 })();
 
-
-myModule.publyMethod();
-console.log(myModule.publy)
+console.log(aModule)
+aModule.log();
