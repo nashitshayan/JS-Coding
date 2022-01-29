@@ -68,26 +68,26 @@
 //     this.name= name;
 // }
 
-function Man(name) {
-    this.name = name;
-    function soo(){
-        console.log('ssooo')
-    }
-  }
-// Man.prototype.manHood = function() {
-//     console.log('hi')
-// };
+// function Man(name) {
+//     this.name = name;
+//     function soo(){
+//         console.log('ssooo')
+//     }
+//   }
+// // Man.prototype.manHood = function() {
+// //     console.log('hi')
+// // };
  
-Man.prototype.sayHi = function() {
-    console.log(this.name);
-  };
+// Man.prototype.sayHi = function() {
+//     console.log(this.name);
+//   };
 
-  const boy= new Man('Nashit');
+//   const boy= new Man('Nashit');
 
-//boy.sayHi();
+// //boy.sayHi();
 
-for(let i in Man)
-    console.dir(i)
+// for(let i in Man)
+//     console.dir(i)
 
 
 /* 
@@ -102,3 +102,19 @@ Three differences between class syntax and constructor syntax:
 
 
 */
+
+// const myObj= {
+//   func: function(){
+//     console.log(this);
+//   }
+// }
+
+// myObj.func();
+
+
+
+
+let  abc= ()=>{
+  console.log('abx')
+}
+console.log( abc);
