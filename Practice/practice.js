@@ -114,7 +114,11 @@ Three differences between class syntax and constructor syntax:
 
 
 
-let  abc= ()=>{
-  console.log('abx')
-}
-console.log( abc);
+// let  abc= ()=>{
+//   console.log('abx')
+// }
+// console.log( abc);
+
+let testBuffer = new ArrayBuffer(16);
+let arr1= new Int16Array(testBuffer);
+console.dir(arr1);
