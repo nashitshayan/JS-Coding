@@ -119,6 +119,19 @@ Three differences between class syntax and constructor syntax:
 // }
 // console.log( abc);
 
-let testBuffer = new ArrayBuffer(16);
-let arr1= new Int16Array(testBuffer);
-console.dir(arr1);
+// let testBuffer = new ArrayBuffer(16);
+// let arr1= new Int16Array(testBuffer);
+// console.dir(arr1);
+
+
+function dropdown(){
+    let menuBtn= document.getElementById('menuBtn');
+
+    menuBtn.addEventListener('click', handleMenuClick)
+}
+
+const handleMenuClick= ()=> {
+    let nav= document.getElementById('nav');
+    nav.classList.toggle('nav-dropdown');
+}
+dropdown();

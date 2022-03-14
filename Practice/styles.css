@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #434343;
+    color: #ddd9d9;
+}
+
+header{
+    text-align: center;
+    background-color: blueviolet;
+    color: #ddd9d9;
+    padding: 2rem;
+}
+
+button{
+    padding: 0.5rem 0.75rem;
+    margin: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: brown;
+    color: #ddd9d9;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #ddd9d9;
+}
+li{
+    border: 1px solid #434343;
+    width: max-content;
+    font-size: 1.1rem;
+}
+
+.nav-dropdown{
+    display: none;
+}
