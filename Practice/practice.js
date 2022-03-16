@@ -136,3 +136,66 @@ const handleMenuClick= ()=> {
 }
 dropdown();
 
+
+
+
+function get(url){
+    //return a new promise
+    return new Promise(function(resolve,reject){
+        //do xhr stuff
+        let req= new XMLHttpRequest();
+        req.open('GET', url, true);
+
+        req.onload= function(){
+            //this us called even on 404 etc
+            //so check the status
+            if(req.status==200){
+                //resolve the promise with the status text
+                //which will hopefully be a meaningful error
+                resolve(req.response);
+            }
+            else{
+                //otherwise reject with the status text
+                //which will hopefully be a meaningfull error
+                reject(Error(req.statusText));
+            }
+        };
+
+        //handle network errors
+        req.onerror= function(){
+            reject(Error('Network Error'));
+        }
+
+        //make the request
+        req.send();
+    });
+}
+
+
+//use it
+get('story.json').then(function(response){
+    console.log('Success', response);
+}, function(error){
+    console.log('Failed', error)
+});
+
+// let p = new Promise(function(resolve,reject){
+
+//     //do something async
+
+//     if(/* all good */){
+//         resolve('sucess');
+//     }
+//     else{
+//         reject('failure')
+//     }
+// });
+
+
+// p.then(function(result){
+//     /*do something with the result*/
+// }).catch(function(){
+//     //error
+// }).finally(function(){
+//     //run regardless of error or sucess
+// })
