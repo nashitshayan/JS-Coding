@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form Validation</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: rgb(180, 138, 138);
+
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font: 1em sans-serif;
+			}
+			form {
+				width: 300px;
+				border: 2px solid #2b2a27;
+				padding: 2rem;
+				border-radius: 8px;
+			}
+			.wrap-input {
+				padding-bottom: 1em;
+			}
+			input[type='email'],
+			input[type='text'],
+			input[type='password'] {
+				appearance: none;
+				width: 100%;
+				border: 1px solid #333;
+				font-family: inherit;
+				font-size: 90%;
+				/* margin-bottom: 20px; */
+			}
+			span {
+				margin: 0;
+			}
+			input:invalid {
+				border-color: #900;
+				background-color: #fdd;
+			}
+			input:focus:invalid {
+				outline: none;
+			}
+
+			.error {
+				width: 100%;
+				font-size: 80%;
+				color: white;
+				background-color: #900;
+				border-radius: 0 0 5px 5px;
+			}
+			.error.active {
+				padding: 0.3em;
+			}
+
+			button {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<form novalidate>
+			<div class="wrap-input">
+				<label for="email">
+					<span>Email:</span>
+					<input type="email" id="email" name="email" minlength="8" />
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</div>
+			<div class="wrap-input">
+				<label for="country">
+					<span>Country:</span>
+					<input type="text" id="country" name="country" />
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</div>
+			<div class="wrap-input">
+				<label for="zipcode">
+					<span>Zipcode:</span>
+					<input type="text" id="zipcode" name="zipcode" />
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</div>
+			<div class="wrap-input">
+				<label for="password">
+					<span>Password:</span>
+					<input type="password" id="password" name="password" minlength="8" />
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</div>
+			<div class="wrap-input">
+				<label for="password2">
+					<span>Confirm Password:</span>
+					<input
+						type="password"
+						id="password2"
+						name="password2"
+						minlength="8"
+					/>
+					<span class="error" aria-live="polite"></span>
+				</label>
+			</div>
+
+			<button>Submit</button>
+		</form>
+
+		<script>
+			const form = document.getElementsByTagName('form')[0];
+
+			const email = document.getElementById('email');
+			const emailError = document.querySelector('#email + span.error');
+
+			email.addEventListener('input', (e) => {
+				if (email.validity.valid) {
+					emailError.textContent = '';
+					emailError.className = 'error';
+				} else {
+					showError();
+				}
+			});
+
+			form.addEventListener('submit', (e) => {
+				if (!email.validity.valid) {
+					showError();
+					e.preventDefault();
+				}
+			});
+
+			function showError() {
+				if (email.validity.valueMissing) {
+					emailError.textContent = 'You need to enter an email address.';
+				} else if (email.validity.typeMismatch) {
+					emailError.textContent =
+						'Entered value needs to be an e-mail address.';
+				} else if (email.validity.tooShort) {
+					emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+				}
+				emailError.className = 'error active';
+			}
+		</script>
+	</body>
+</html>
