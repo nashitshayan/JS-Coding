@@ -10,7 +10,7 @@ export const analyzeArray = (arr) => {
 
 const getAverage = (arr) => {
 	let sum = arr.reduce((prev, cur) => prev + cur, 0);
-	return parseInt(sum / arr.length);
+	return sum / arr.length;
 };
 const getMinMax = (arr) => {
 	let maxElem = Number.MIN_SAFE_INTEGER;
