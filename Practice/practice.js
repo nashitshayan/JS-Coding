@@ -258,3 +258,5 @@ const reverse = (arr) => [...arr].reverse();
 
 // let ans= reverseString('nashit')
 // ans
+
+document.getElementById('menuBtn').style.backgroundColor = 'red';
