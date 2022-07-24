@@ -58,10 +58,10 @@
 
 // a * (b+c)= a * b + a * c
 
-// const match = curry((what, s) => s.match(what));
-// const replace = curry((what, replacement, s) => s.replace(what, replacement));
-// const filter = curry((f, xs) => xs.filter(f));
-// const map = curry((f, xs) => xs.map(f));
+const match = curry((what, s) => s.match(what));
+const replace = curry((what, replacement, s) => s.replace(what, replacement));
+const filter = curry((f, xs) => xs.filter(f));
+const map = curry((f, xs) => xs.map(f));
 // let str = 'My name is nashit shayan khan';
 
 // let hasLetterA = match(/a/g);
@@ -90,9 +90,79 @@ function curry(fn) {
 //ex 1
 //Refactor to remove all arguments by partially applying the function.
 
-//ques: const words= str=> split('',str)
+//ques: let words= str=> split('',str)
 
-const split = curry((splitStr, originalStr) => originalStr.split(splitStr));
-const splitOn = split(' ');
-const words = splitOn('nashit is a frontend dev');
-words;
+// const split = curry((splitStr, originalStr) => originalStr.split(splitStr));
+// const splitOn = split(' ');
+// const words = splitOn('nashit is a frontend dev');
+// words;
+
+// words= split(' ')
+
+
+//ex2 
+// const filterQs = xs => filter(x => match(/q/i, x), xs);
+
+
+//ex3
+const keepHighest = (x, y) => (x >= y ? x : y);  
+//const max = xs => reduce((acc, x) => (x >= acc ? x : acc), -Infinity, xs);  
+//Refactor max to not reference any arguments using the helper function keepHighest
+
+//ans
+
+
+
+
+useEffect(()=>{
+
+},[])
+//componentDidMount
+
+useEffect(()=>{})
+//componentDidUpdate
+
+useEffect(()=>{},[values])
+//componentDidUpdate
+
+useEffect(()=>{
+
+	return ()=> {//this will run when component unmounts}
+})
+
+//componentWillUnmount
+
+
+
+//parent
+
+// function Parent(){
+
+// 	function somethingHandler(){
+// 		//do something
+// 	}
+// 	return (
+// 		<Child handler={somethingHandler}/>
+// 	)
+
+// }
+
+// function Child({handler}){
+
+// 	return (
+// 		<div onClick={handler}>
+// 			{/* sothing */}
+// 		</div>
+// 	)
+// }
+
+
+// let arr = [{name: 'ram', age: 18}, {name: 'ganesh', age: 22}, {name: 'rakesh', age: 25}, {name: 'om', age: 46}, {name: 'sadik', age: 30},{name: 'asim', age: 32},{name: 'harsh', age: 15}]
+
+// let a=1;
+// a
+
+
+
+
+
