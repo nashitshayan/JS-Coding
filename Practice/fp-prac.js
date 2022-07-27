@@ -54,3 +54,26 @@
 // obj2
 
 //dom manipulation using functions
+// const R = (() => {
+// 	return {
+// 		curry: () => {},
+// 		compose: () => {},
+// 	};
+// })();
+
+// const elem = (tag) => document.createElement(tag);
+// const text = (content) => document.createTextNode(content);
+
+// const addClass = R.curry((className, element) => {
+// 	element.classList.add(className);
+// 	return element;
+// });
+
+// const append = R.curry((node, element) => {
+// 	element.append(node);
+// 	return element;
+// });
+
+// const message = (content) => {
+// 	return R.compose(append(text(content)), addClass('class'))(elem('div'));
+// };
