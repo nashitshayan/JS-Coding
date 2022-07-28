@@ -93,3 +93,64 @@
 // // expect r1===r2===7
 // r1;
 // r2;
+
+//recursion
+
+//eg
+//non recursion
+// function sumIter() {
+// 	var sum = 0;
+// 	for (var i = 0; i < arguments.length; i++) {
+// 		sum += arguments[i];
+// 	}
+// 	return sum;
+// }
+
+// var res= sumIter(3,4,5)
+// res //12
+
+// recursion
+// function sumRecurMine(args) {
+// 	if (args.length === 1) return args[0];
+// 	return args[0] + sumRecurMine([...args].splice(1));
+// }
+// let arr = [1, 2, 3, 4, 5];
+// let res = sumRecurMine(arr);
+// res; //15
+
+// function sumRecurKyleOne() {
+// 	var args = [].slice.call(arguments);
+// 	args;
+// 	if (args.length <= 2) return args[0] + args[1];
+// 	return args[0] + sumRecurKyle.apply(null, args.slice(1));
+// }
+// let res2 = sumRecurKyle(1, 2, 3, 4, 5);
+// res2;
+
+// function sumRecurKyleTwo(...args) {
+// 	args;
+// 	if (args.length <= 2) return args[0] + args[1];
+// 	return args[0] + sumRecurKyleTwo(...args.slice(1));
+// }
+// let res2 = sumRecurKyleTwo(1, 2, 3, 4, 5);
+// res2;
+
+//ex3
+// turn mult() into a recursive func that can take as many arguments as necessary
+
+// function mult(x,y,z){return x* y*z}
+// let r1= mult(4,5,6)
+// r1 //120
+// let r2= mult(4,5,6,7)
+// r2 //120
+
+//sol
+// function mult(...args){
+//     if(args.length<=2)
+//     return args[0] * args[1]
+//     return args[0] * mult(...args.slice(1))
+// }
+// let r1= mult(4,5,6)
+// r1 //120
+// let r2= mult(4,5,6,7)
+// r2 //840
