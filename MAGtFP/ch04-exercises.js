@@ -1,4 +1,10 @@
-import { split, filter, match, reduce } from '@mostly-adequate/support';
+import {
+	split,
+	filter,
+	match,
+	reduce,
+	replace,
+} from '@mostly-adequate/support';
 //Chapter 04
 // Ex1 : Refactor to remove all arguments by partially applying the function.
 
