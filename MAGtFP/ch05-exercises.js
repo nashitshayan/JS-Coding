@@ -5,6 +5,8 @@ import {
 	map,
 	reduce,
 	add,
+	sortBy,
+	concat,
 } from '@mostly-adequate/support';
 //Chapter 05
 //In each following exercise, we'll consider Car objects with the following shape:
@@ -59,3 +61,14 @@ q2;
 const avgDollarValue = compose(average, map(prop('dollar_value')));
 let a2 = avgDollarValue(cars);
 a2;
+
+//EX3 Refactor `fastestCar` using `compose()` and other functions in pointfree-style.
+
+// fastestCar :: [Car] -> String
+const fastestCar = (cars) => {
+	const sorted = sortBy((car) => car.horsepower, cars);
+	const fastest = last(sorted);
+	return concat(fastest.name, ' is the fastest');
+};
+
+let q3 = fastestCar(cars);
