@@ -7,6 +7,7 @@ import {
 	add,
 	sortBy,
 	concat,
+	flip,
 } from '@mostly-adequate/support';
 //Chapter 05
 //In each following exercise, we'll consider Car objects with the following shape:
@@ -72,3 +73,23 @@ const fastestCar = (cars) => {
 };
 
 let q3 = fastestCar(cars);
+q3;
+
+//my Sol3
+const flipConcat = flip(concat);
+const fastestVehicle = compose(
+	flipConcat(' is the fastest'),
+	prop('name'),
+	last,
+	sortBy(prop('horsepower')),
+);
+let a3 = fastestVehicle(cars);
+a3;
+
+//book sol3
+// const fastestCar = compose(
+// 	append(' is the fastest'),
+// 	prop('name'),
+// 	last,
+// 	sortBy(prop('horsepower')),
+// );
