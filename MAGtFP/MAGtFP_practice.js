@@ -58,10 +58,10 @@
 
 // a * (b+c)= a * b + a * c
 
-const match = curry((what, s) => s.match(what));
-const replace = curry((what, replacement, s) => s.replace(what, replacement));
-const filter = curry((f, xs) => xs.filter(f));
-const map = curry((f, xs) => xs.map(f));
+// const match = curry((what, s) => s.match(what));
+// const replace = curry((what, replacement, s) => s.replace(what, replacement));
+// const filter = curry((f, xs) => xs.filter(f));
+// const map = curry((f, xs) => xs.map(f));
 // let str = 'My name is nashit shayan khan';
 
 // let hasLetterA = match(/a/g);
@@ -73,19 +73,19 @@ const map = curry((f, xs) => xs.map(f));
 // let ans2 = censored(str)
 // ans2
 
-//CHAPTER 4
-// curry :: ((a, b, ...) -> c) -> a -> b -> ... -> c
-function curry(fn) {
-	const arity = fn.length;
+// //CHAPTER 4
+// // curry :: ((a, b, ...) -> c) -> a -> b -> ... -> c
+// function curry(fn) {
+// 	const arity = fn.length;
 
-	return function $curry(...args) {
-		if (args.length < arity) {
-			return $curry.bind(null, ...args);
-		}
+// 	return function $curry(...args) {
+// 		if (args.length < arity) {
+// 			return $curry.bind(null, ...args);
+// 		}
 
-		return fn.call(null, ...args);
-	};
-}
+// 		return fn.call(null, ...args);
+// 	};
+// }
 
 //ex 1
 //Refactor to remove all arguments by partially applying the function.
@@ -99,40 +99,33 @@ function curry(fn) {
 
 // words= split(' ')
 
-
-//ex2 
+//ex2
 // const filterQs = xs => filter(x => match(/q/i, x), xs);
 
-
 //ex3
-const keepHighest = (x, y) => (x >= y ? x : y);  
-//const max = xs => reduce((acc, x) => (x >= acc ? x : acc), -Infinity, xs);  
+// const keepHighest = (x, y) => (x >= y ? x : y);
+//const max = xs => reduce((acc, x) => (x >= acc ? x : acc), -Infinity, xs);
 //Refactor max to not reference any arguments using the helper function keepHighest
 
 //ans
 
+// useEffect(()=>{
 
-
-
-useEffect(()=>{
-
-},[])
+// },[])
 //componentDidMount
 
-useEffect(()=>{})
-//componentDidUpdate
+// useEffect(()=>{})
+// //componentDidUpdate
 
-useEffect(()=>{},[values])
-//componentDidUpdate
+// useEffect(()=>{},[values])
+// //componentDidUpdate
 
-useEffect(()=>{
+// useEffect(()=>{
 
-	return ()=> {//this will run when component unmounts}
-})
+// 	return ()=> {//this will run when component unmounts}
+// });
 
 //componentWillUnmount
-
-
 
 //parent
 
@@ -156,13 +149,7 @@ useEffect(()=>{
 // 	)
 // }
 
-
 // let arr = [{name: 'ram', age: 18}, {name: 'ganesh', age: 22}, {name: 'rakesh', age: 25}, {name: 'om', age: 46}, {name: 'sadik', age: 30},{name: 'asim', age: 32},{name: 'harsh', age: 15}]
 
 // let a=1;
 // a
-
-
-
-
-
