@@ -19,6 +19,15 @@ requirejs(['jquery', 'ramda'], ($, { compose, curry, map, prop }) => {
 	const query = (t) => `?tags=${t}&format=json&jsoncallback=?`;
 	const url = (t) => `https://${host}${path}${query(t)}`;
 
-	const app = compose(Impure.getJSON(Impure.trace('response')), url);
+	const img = (src) => $('<img />', { src });
+
+	const mediaUrl = compose(prop('m'), prop('media'));
+	const mediaToImg = compose(img, mediaUrl);
+	const images = compose(map(mediaToImg), prop('items'));
+
+	const render = compose(Impure.setHTML('#js-main'), images);
+	const app = compose(Impure.getJSON(render), url);
 	app('cats');
 });
+// map's composition law
+// compose(map(f), map(g))=== map(compose(f, g))
