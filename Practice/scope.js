@@ -121,3 +121,13 @@
 // };
 // foo();
 //bar() //error
+
+//Cheat lexical scope using Eval()
+//NOTE: NEVER use eval()
+
+var foo = 'bar';
+function baz(str) {
+	eval(str); //cheating!
+	//foo //42 OOPS!
+}
+baz('var foo=42');
