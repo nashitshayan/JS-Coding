@@ -260,3 +260,18 @@ const reverse = (arr) => [...arr].reverse();
 // ans
 
 document.getElementById('menuBtn').style.backgroundColor = 'red';
+
+var foo = 'bar';
+
+function bar() {
+	var foo = 'baz'; // a new local variable, different from the one in the upper scope.
+}
+bar();
+
+function baz(foo) {
+	foo = 'bam'; // Because foo came in as a param, it is treated as a  local variable, it is assigned 'bam' and then later discarded. If we remove the foo param, then this statement will update the foo in the upper scope.
+	bam = 'yay'; //Normally, works fine, JS will go ahead and create this 'bam' variable
+	// When using 'use strict' or ES6 modules, throws an error because bam is never
+}
+baz('poo'); // if no arg is passed, the inner foo will be initially 'undefined' and then it will get assigned 'bam'.
+//if an argument is passed, the iner foo will be assigned that value and then later 'bam'
