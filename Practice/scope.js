@@ -1,28 +1,29 @@
-var foo = 'bar';
+// var foo = 'bar';
 
-function bar() {
-	var foo = 'baz'; // a new local variable, different from the one in the upper scope.
-}
-bar();
+// function bar() {
+// 	var foo = 'baz'; // a new local variable, different from the one in the upper scope.
+// }
+// bar();
 
-function baz(foo) {
-	foo = 'bam'; // Because foo came in as a param, it is treated as a  local variable, it is assigned 'bam' and then later discarded. If we remove the foo param, then this statement will update the foo in the upper scope.
-	bam = 'yay'; //Normally, works fine, JS will go ahead and create this 'bam' variable
-	// When using 'use strict' or ES6 modules, throws an error because bam is never
-}
-baz('poo'); // if no arg is passed, the inner foo will be initially 'undefined' and then it will get assigned 'bam'.
+// function baz(foo) {
+// 	foo = 'bam'; // Because foo came in as a param, it is treated as a  local variable, it is assigned 'bam' and then later discarded. If we remove the foo param, then this statement will update the foo in the upper scope.
+// 	bam = 'yay'; //Normally, works fine, JS will go ahead and create this 'bam' variable
+// 	// When using 'use strict' or ES6 modules, throws an error because bam is never
+// }
+// baz('poo'); // if no arg is passed, the inner foo will be initially 'undefined' and then it will get assigned 'bam'.
 //if an argument is passed, the iner foo will be assigned that value and then later 'bam'
-var aaa = 'aaa';
-var bing = function () {
-	console.log('outer bing');
-	var bing = function () {
-		console.log('inner bing');
-	};
-	bing();
-	var aaa = 'abababa';
-};
 
-bing();
+// var aaa = 'aaa';
+// var bing = function () {
+// 	console.log('outer bing');
+// 	var bing = function () {
+// 		console.log('inner bing');
+// 	};
+// 	bing();
+// 	var aaa = 'abababa';
+// };
+
+// bing();
 
 //case 1 : Both function declarations with same name
 //op:
@@ -89,3 +90,34 @@ bing();
 // Feel free to play around with it and run each case. If anyone knows the real reason why each case happens, do share.
 
 // https://codepen.io/nashitshayan/pen/qBoxwgj?editors=0011
+
+//Scope and Execution example
+
+// var foo = 'bar';
+// function bar() {
+// 	var foo = 'baz';
+// 	function baz(foo) {
+// 		foo = 'bam';
+// 		bam = 'yay';
+// 	}
+// 	baz();
+// }
+// bar();
+
+// foo //bar
+// bam // yay
+// baz() // reference error
+
+// function declarations, function expressions, block scope
+
+// var foo = function bar() {
+// 	var foo = 'baz';
+// 	function baz() {
+// 		foo = bar;
+// 		foo; //function
+// 	}
+
+// 	baz();
+// };
+// foo();
+//bar() //error
