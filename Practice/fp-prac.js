@@ -1,3 +1,79 @@
+// const numbers = [1, 4, 9];
+// //so this line below...
+// const roots1 = numbers.map((num) => Math.sqrt(num));
+// //... can be ??
+// const roots2 = numbers.map(Math.sqrt);
+
+// const arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// console.log(arr.map(parseInt));
+
+// DECOMPOSING COMPOSITION
+
+// const revString = function revString(str) {
+// 	const strArr = str.split('');
+//     const revStrArr= strArr.reverse();
+//     const joinedRevStrArr= revStrArr.join('')
+//     return joinedRevStrArr
+// };
+
+// const revString = function revString(str) {
+// 	return str.split('').reverse().join('');
+// };
+
+// let a= revString('React')
+// a
+
+/**
+ * return join(reverse(split(string)))
+ */
+
+// const splitOn = (splitStr) => (original) => original.split(splitStr);
+// const joinWith = (joinStr) => (original) => original.join(joinStr);
+// const reverse = (arr) => [...arr].reverse();
+
+// let splitByLetter = splitOn('');
+// let ans1 = splitByLetter('nashit');
+// ans1;
+// let joinByLetter = joinWith('');
+// let ans2 = joinByLetter(ans1);
+// ans2;
+// let ans3 = joinByLetter(reverse(splitByLetter('nashit')));
+// ans3;
+
+// const reverseString = (string) => {
+// 	const instructions = [splitOn(''), reverse, joinWith('')];
+// 	//let workingValue = string;
+
+// 	// for(let i=0; i<instructions.length; i++)
+// 	// {
+// 	//     workingValue= instructions[i](workingValue)
+// 	// }
+// 	return instructions.reduce(
+// 		(workingValue, instruction) => instruction(workingValue),
+// 		string,
+// 	);
+// };
+// let reversedStr = reverseString('nashit');
+// reversedStr;
+
+// const pipe =
+// 	(...arrOfInstructions) =>
+// 	(value) =>
+// 		arrOfInstructions.reduce(
+// 			(workingValue, instruction) => instruction(workingValue),
+// 			value,
+// 		);
+
+// const pipe =
+// 	(...fns) =>
+// 	(x) =>
+// 		fns.reduce((acc, fn) => fn(acc), x);
+
+// let reverseString = pipe(splitOn(''), reverse, joinWith(''));
+
+// let ans= reverseString('nashit')
+// ans
+
 //first class functions
 
 // const greeting = (x) => (y) => `${x} ${y}!`;
