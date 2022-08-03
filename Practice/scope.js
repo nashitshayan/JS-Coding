@@ -25,6 +25,15 @@
 
 // bing();
 
+// function a() {
+// 	var b = 3;
+// 	function aa() {
+// 		aaa = 1; //gets declared in the global scope
+// 	}
+// 	aa();
+// }
+// a();
+
 //case 1 : Both function declarations with same name
 //op:
 // second bong
@@ -125,9 +134,27 @@
 //Cheat lexical scope using Eval()
 //NOTE: NEVER use eval()
 
-var foo = 'bar';
-function baz(str) {
-	eval(str); //cheating!
-	//foo //42 OOPS!
+// var foo = 'bar';
+// function baz(str) {
+// 	eval(str); //cheating!
+// 	//foo //42 OOPS!
+// }
+// baz('var foo=42');
+
+//Cheat lexical scope using With keyword
+var obj = {
+	a: 2,
+	b: 3,
+	c: 4,
+};
+obj.a = obj.b + obj.c;
+obj.c = obj.b - obj.a;
+with (obj) {
+	a = b + c;
+	d = b - a;
+	d = 3; //?
 }
-baz('var foo=42');
+
+obj;
+obj.d; // undefined
+d; // 3-- oops
