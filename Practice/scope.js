@@ -142,19 +142,45 @@
 // baz('var foo=42');
 
 //Cheat lexical scope using With keyword
-var obj = {
-	a: 2,
-	b: 3,
-	c: 4,
-};
-obj.a = obj.b + obj.c;
-obj.c = obj.b - obj.a;
-with (obj) {
-	a = b + c;
-	d = b - a;
-	d = 3; //?
-}
+// var obj = {
+// 	a: 2,
+// 	b: 3,
+// 	c: 4,
+// };
+// obj.a = obj.b + obj.c;
+// obj.c = obj.b - obj.a;
+// with (obj) {
+// 	a = b + c;
+// 	d = b - a;
+// 	d = 3; //?
+// }
 
-obj;
-obj.d; // undefined
-d; // 3-- oops
+// obj;
+// obj.d; // undefined
+// d; // 3-- oops
+
+// comparing arrays - hack
+// let a1 = [
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// ];
+// let a2 = [
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// 	[0, 0, 0, 0, 0],
+// ];
+
+// let r = a1 === a2;
+// r;
+
+// let sA1 = JSON.stringify(a1);
+// let sA2 = JSON.stringify(a2);
+// let t = sA1;
+// t;
+// let sR = sA1 === sA2;
+// sR;
