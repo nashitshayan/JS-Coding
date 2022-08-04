@@ -39,7 +39,7 @@
 // second bong
 // second bong
 //Reason: IDK yet. But my guess is that during the compiling/memory allocation phase, second definition overrides the first one. Therefore during execution, both 'bong()' will run the updated function body (second bong)
-
+// Update: Now I know. Multiple duplicate function declarations get overwritten.
 // function bong() {
 // 	console.log('first bong');
 // }
@@ -184,3 +184,76 @@
 // t;
 // let sR = sA1 === sA2;
 // sR;
+
+//block scope -let
+
+function foo() {
+	var bar = 'bar';
+	for (let i = 0; i < bar.length; i++) {
+		var ch = bar.charAt(i);
+		ch;
+	}
+	//  i // error
+}
+foo();
+
+function boo(bar) {
+	if (bar) {
+		let baz = bar;
+		if (baz) {
+			let bam = baz;
+		}
+		//bam // error
+	}
+	// baz // error
+}
+boo('bar');
+
+//explicit let block
+function poo(bar) {
+	// let (baz=bar) {
+	//     baz // fine
+	// }
+}
+
+//hoisting
+//var a = b(); // undefined
+//var c = d(); // ref err
+//a // undefined
+//c // nothing
+
+// function b() {
+// 	return c;
+// }
+// var d = function () {
+// 	return b();
+// };
+
+//functions get hoisted before variables
+
+//meat
+// foo(); //"foo"
+
+// var foo = 2;
+// foo;
+
+// function foo() {
+// 	console.log('bar');
+// }
+// function foo() {
+// 	console.log('foo');
+// }
+
+//nice mutual recursion problem
+// let r = a(1);
+// r;
+// function a(foo) {
+// 	if (foo > 20) return foo;
+// 	return b(foo + 2);
+// }
+// function b(foo) {
+// 	return c(foo) + 1;
+// }
+// function c(foo) {
+// 	return a(foo * 2);
+// }
