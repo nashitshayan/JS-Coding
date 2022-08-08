@@ -1,76 +1,81 @@
-A();
+(function () {
+	//A();
 
-function C() {
-	console.log('OOPS!');
-}
+	function C() {
+		console.log('OOPS!');
+	}
 
-function E(f) {
-	console.log('E');
-	f();
-	var f = F;
-}
+	function E(f) {
+		console.log('E');
+		f();
+		var f = F;
+	}
 
-var A = function () {
-	console.log('A');
-	B();
-};
+	function A() {
+		console.log('A');
+		B();
+	}
 
-var C;
+	var C;
 
-function G() {
-	console.log('G');
-	H();
+	function G() {
+		console.log('G');
+		H();
 
-	var H = function () {
-		console.log('H');
-		I();
-	};
-}
+		function H() {
+			console.log('H');
+			I();
+		}
+	}
 
-var D = d;
+	var D = d;
+	//.log(D());
+	function d() {
+		console.log('D');
+		E(F);
+	}
 
-function d() {
-	console.log('D');
-	E();
-}
+	function I() {
+		console.log('I');
+		J();
+		J();
+	}
 
-function I() {
-	console.log('I');
-	J();
-	J();
-}
+	function B() {
+		console.log('B');
+		C();
+	}
 
-B = function () {
-	console.log('B');
-	C();
-};
+	function F() {
+		console.log('F');
+		G();
+	}
 
-var F = function () {
-	console.log('F');
-	G();
-};
+	var rest = 'KLMNOPQRSTUVWXYZ'.split(''),
+		obj = {};
+	for (var i = 0; i < rest.length; i++) {
+		(function (i) {
+			// define the current function
+			obj[rest[i]] = function () {
+				console.log(rest[i]);
+				if (i < rest.length - 1) {
+					// TODO: call the next function
+					obj[rest[i + 1]]();
+				}
+			};
+		})(i);
+	}
 
-var rest = 'KLMNOPQRSTUVWXYZ'.split('');
-for (var i = 0; i < rest.length; i++) {
-	(function (i) {
-		// define the current function
-		window[rest[i]] = function () {
-			console.log(rest[i]);
-			if (i < rest.length - 1) {
-				// TODO: call the next function
-			}
+	var J = function () {
+		J = function () {
+			console.log('J');
+			obj.K();
 		};
-	})(i);
-}
-
-var J = function () {
-	J = function () {
-		console.log('J');
-		K();
 	};
-};
-
-C = function () {
-	console.log('C');
-	D();
-};
+	//D();
+	function C() {
+		console.log('C');
+		D();
+	}
+	return A;
+})()();
