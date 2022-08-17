@@ -257,3 +257,19 @@ function poo(bar) {
 // function c(foo) {
 // 	return a(foo * 2);
 // }
+
+// let a = [2, 7, 5, 8, 1];
+// function rem(...elems) {
+// 	return a.filter((n) => !elems.includes(n));
+// }
+// let r = rem(5, 1);
+// r;
+
+// const board = new Array(10).fill(new Array(10).fill(0));
+// board[1][8] = 2//{ somet: 0 };
+// let a = board;
+
+// let b= new Array(3).fill(new Array(3).fill(1))
+// b[0][1]=2
+// b
+// a;
