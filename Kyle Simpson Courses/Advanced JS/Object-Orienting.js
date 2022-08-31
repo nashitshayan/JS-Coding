@@ -121,6 +121,7 @@
  *
  * -
  */
+//step1 take the example above
 // function Foo(who) {
 // 	this.me = who;
 // }
